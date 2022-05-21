@@ -19,36 +19,28 @@ const Reservation = () => {
 
   return (
     <>
-      <div className="reservation container">
-        <h2>
-          Vaše e-jízdenka č.{' '}
-          {reservation !== null ? reservation.reservationId : null}{' '}
-        </h2>
-        <div className="reservation__body">
-          <div className="reservation__headings">
-            <p>Datum cesty: </p>
-            <p>Odjezd: </p>
-            <p>Příjezd: </p>
-            <p>Sedadlo:</p>
-          </div>
-          <div className="reservation__info">
-            <p>{reservation !== null ? reservation.date : null}</p>
-            <p>
-              {' '}
-              {reservation !== null
-                ? reservation.fromCity.name + ', ' + reservation.fromCity.time
-                : null}
-            </p>
-            <p>
-              {' '}
-              {reservation !== null
-                ? reservation.toCity.name + ', ' + reservation.toCity.time
-                : null}
-            </p>
-            <p> {reservation !== null ? reservation.seatNumber : null}</p>
+      {reservation !== null ? (
+        <div className="reservation container">
+          <h2>Vaše e-jízdenka č. {reservation.reservationId} </h2>
+          <div className="reservation__body">
+            <div className="reservation__headings">
+              <p>Datum cesty: </p>
+              <p>Odjezd: </p>
+              <p>Příjezd: </p>
+              <p>Sedadlo:</p>
+            </div>
+            <div className="reservation__info">
+              <p>{reservation.date}</p>
+              <p>
+                {' '}
+                {reservation.fromCity.name + ', ' + reservation.fromCity.time}
+              </p>
+              <p> {reservation.toCity.name + ', ' + reservation.toCity.time}</p>
+              <p> {reservation.seatNumber}</p>
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
     </>
   );
 };
