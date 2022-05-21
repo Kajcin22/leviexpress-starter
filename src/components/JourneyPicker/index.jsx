@@ -3,8 +3,6 @@ import mapImage from './img/map.svg';
 import './style.css';
 
 const CityOptions = ({ cities }) => {
-  console.log(cities);
-
   return (
     <>
       <option value="">Vyberte</option>
