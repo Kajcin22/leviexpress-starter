@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { JourneyPicker } from '../JourneyPicker';
+import JourneyDetail from '../JourneyDetail';
 
 export const Home = () => {
   const [journey, setJourney] = useState(null);
 
   const handleJourney = (journeySelection) => {
     console.log(journeySelection);
-    setJourney(journeySelection);
+    setJourney(journeySelection.results);
   };
+
+  console.log(journey);
   return (
     <>
       <main>
         <JourneyPicker onJourneyChange={handleJourney} />
-        {journey !== null
-          ? `Nalezeno spojení s id ${journey.results.journeyId}`
-          : null}
+        {journey !== null ? <JourneyDetail journey={journey} /> : null}
       </main>
     </>
   );
